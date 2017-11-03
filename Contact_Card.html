@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Card</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("button").click(function(){
+                    var first = $("#first").val();
+                    var last = $("#last").val();
+                    var desc = $("textarea").val();
+                    $("#cards").append("<div id ='card'><h2>" + first + " " + last + "</h2><p id='interact'> Click me.</p><p id = 'descrip' hidden> "+ desc +"</p></div>");
+                    $("#first").val("");
+                    $("#last").val("");
+                    $("#desc").val("");
+                    return false;
+                });
+                
+                $(document).on('click', '#interact', function(){
+                    $("#interact").hide();
+                    $("#descrip").fadeIn();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <div id ="contacts">
+                <h1>Contact Form</h1>
+                <form>
+                    <label for="first">First Name: </label>
+                    <input id ="first" type ="text" name="first">
+                    <label for="last">Last Name: </label>
+                    <input id ="last" type ="text" name="last">
+                    <label for="desc">Description: </label>
+                    <textarea id="desc"></textarea>
+                    <button>Create Contact</button>
+                </form>
+            </div>
+            <div id ="cards">
+            </div>
+        </div>
+    </body>
+</html>
+    
